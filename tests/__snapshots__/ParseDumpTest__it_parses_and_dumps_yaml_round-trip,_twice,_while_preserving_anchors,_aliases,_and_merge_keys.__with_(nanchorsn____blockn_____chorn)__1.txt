@@ -1,0 +1,31 @@
+anchors:
+    block:
+        sequence: &block_sequence_anchor
+            - 9
+            - 6
+            - 3
+        map: &block_map_anchor
+            foo: bar
+            baz: quz
+    inline:
+        sequence: &inline_sequence_anchor
+            - 8
+            - 4
+            - 2
+        map: &inline_map_anchor
+            foo: bar
+            baz: quz
+    scalar: &scalar_anchor somestring
+aliases:
+    block:
+        sequence: *block_sequence_anchor
+        map: *block_map_anchor
+    inline:
+        sequence: *inline_sequence_anchor
+        map: *inline_map_anchor
+    scalar: *scalar_anchor
+merge_keys:
+    -
+        <<: *block_map_anchor
+    -
+        <<: *inline_map_anchor
